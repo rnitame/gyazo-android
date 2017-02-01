@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Environments">
+        <EditTextPreference
+            android:key="endpoint"
+            android:title="エンドポイント"
+            android:summary="個人の環境に合わせて設定して下さい"
+            android:defaultValue="@string/default_endpoint"/>
+    </PreferenceCategory>
+</PreferenceScreen>
