@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">gyazo-android</string>
+    <string name="setting">Setting</string>
 </resources>
