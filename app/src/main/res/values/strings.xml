@@ -3,4 +3,11 @@
     <string name="setting">Setting</string>
     <string name="select_picture">Select picture</string>
     <string name="default_endpoint">https://upload.gyazo.com/api/upload</string>
+    <string name="hello_world"><b>使い方</b>\n1. スクリーンショットを撮る\n2.このアプリを開く\n\n\nスクリーンショットが自動的にGyazoにアップロードされ、ブラウザが開きます。\nURLはクリップボードにコピーされているので、そのまま別のアプリに移って貼り付けられます。</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_launcher">LauncherActivity</string>
+    <string name="title_activity_main">Gyazo Android</string>
+    <string name="failed_upload_image">Gyazoへのアップロードに失敗しました</string>
+    <string name="uploading_image">Gyazoへアップロードしています</string>
+    <string name="upload_successful">URLをコピーしました</string>
 </resources>
