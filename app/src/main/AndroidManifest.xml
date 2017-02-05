@@ -14,6 +14,13 @@
         <activity
             android:name=".Activity.MainActivity"
             android:label="@string/title_activity_main">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
         </activity>
 
         <activity android:name=".Activity.SettingsActivity">
@@ -25,17 +32,6 @@
             android:label="Image Uploader">
         </service>
 
-        <activity
-            android:name=".Activity.LauncherActivity"
-            android:label="@string/title_activity_launcher"
-            android:launchMode="singleInstance"
-            android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
