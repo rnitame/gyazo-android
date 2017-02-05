@@ -16,6 +16,9 @@
             android:label="@string/title_activity_main">
         </activity>
 
+        <activity android:name=".Activity.SettingsActivity">
+        </activity>
+
         <service
             android:name=".Service.UploadImageService"
             android:exported="false"
