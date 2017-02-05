@@ -4,9 +4,9 @@
     <PreferenceCategory
         android:title="Environments">
         <EditTextPreference
+            android:defaultValue="@string/default_endpoint"
             android:key="endpoint"
-            android:title="エンドポイント"
             android:summary="個人の環境に合わせて設定して下さい"
-            android:defaultValue="@string/default_endpoint"/>
+            android:title="エンドポイント"/>
     </PreferenceCategory>
 </PreferenceScreen>
