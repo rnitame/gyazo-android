@@ -44,6 +44,7 @@ public class UploadImageService extends IntentService {
         String result = null;
 
         try {
+            Log.d(TAG, uri.toString());
             result = uploadImage(uri);
         } catch (IOException e) {
             Log.w(TAG, "Failed to upload an image retry");

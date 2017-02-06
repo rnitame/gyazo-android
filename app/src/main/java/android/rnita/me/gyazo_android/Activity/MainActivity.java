@@ -2,21 +2,16 @@ package android.rnita.me.gyazo_android.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.rnita.me.gyazo_android.R;
+import android.rnita.me.gyazo_android.Service.UploadImageService;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-
-import java.io.FileDescriptor;
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -57,28 +52,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
             if (data != null) {
-                try {
-                    Bitmap bitmap = getBitmapFromUri(data.getData());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                uploadScreenshot(data.getData());
             }
         }
     }
 
-    private Bitmap getBitmapFromUri(Uri uri) throws IOException {
-        ParcelFileDescriptor parcelFileDescriptor =
-                getContentResolver().openFileDescriptor(uri, "r");
-        FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
-        Bitmap bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor);
-        parcelFileDescriptor.close();
-        return bitmap;
+    private void uploadScreenshot(Uri target) {
+        Intent i = new Intent(this, UploadImageService.class);
+        i.setData(target);
+        startService(i);
     }
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
 
         startActivityForResult(intent, 1000);
