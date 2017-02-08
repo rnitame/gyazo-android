@@ -44,9 +44,9 @@ public class UploadImageService extends IntentService {
         String result = null;
 
         try {
-            Log.d(TAG, uri.toString());
             result = uploadImage(uri);
         } catch (IOException e) {
+            e.printStackTrace();
             Log.w(TAG, "Failed to upload an image retry");
         }
 
@@ -91,14 +91,8 @@ public class UploadImageService extends IntentService {
 
         RequestBody body = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
-                .addPart(
-                        Headers.of("Content-Disposition", "form-data; name=\"id\""),
-                        RequestBody.create(null, id)
-                )
-                .addPart(
-                        Headers.of("Content-Disposition", "form-data; name=\"imagedata\"; filename=\"gyazo.com\""),
-                        RequestBody.create(MediaType.parse(type), file)
-                )
+                .addFormDataPart("id", "")
+                .addFormDataPart("imagedata", "gyazo", RequestBody.create(MediaType.parse(type), file))
                 .build();
 
         Request request = new Request.Builder()
@@ -133,7 +127,7 @@ public class UploadImageService extends IntentService {
     }
 
     public String getEndpointUrl() {
-        return "http://upload.gyazo.com/upload.cgi";
+        return "http://gyazo.mmdev.istyle.local/upload.cgi";
     }
 
     @Nullable
