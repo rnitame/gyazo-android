@@ -127,7 +127,7 @@ public class UploadImageService extends IntentService {
     }
 
     public String getEndpointUrl() {
-        return "http://gyazo.mmdev.istyle.local/upload.cgi";
+        return "http://upload.gyazo.com/upload.cgi";
     }
 
     @Nullable
